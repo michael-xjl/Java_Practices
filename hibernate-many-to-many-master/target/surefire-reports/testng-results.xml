@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="2" passed="2">
+  <reporter-output>
+  </reporter-output>
+  <suite name="com.hedleyproctor.ManyToManyTest" duration-ms="2157" started-at="2017-07-17T15:52:42Z" finished-at="2017-07-17T15:52:44Z">
+    <groups>
+    </groups>
+    <test name="Command line test" duration-ms="2157" started-at="2017-07-17T15:52:42Z" finished-at="2017-07-17T15:52:44Z">
+      <class name="com.hedleyproctor.ManyToManyTest">
+        <test-method status="PASS" signature="setUp()" name="setUp" is-config="true" duration-ms="1919" started-at="2017-07-17T15:52:42Z" finished-at="2017-07-17T15:52:44Z">
+        </test-method>
+        <test-method status="PASS" signature="emfOnetoMany()" name="emfOnetoMany" duration-ms="1" started-at="2017-07-17T15:52:44Z" finished-at="2017-07-17T15:52:44Z">
+        </test-method>
+        <test-method status="PASS" signature="oneToMany()" name="oneToMany" duration-ms="229" started-at="2017-07-17T15:52:44Z" finished-at="2017-07-17T15:52:44Z">
+        </test-method>
+      </class>
+    </test>
+  </suite>
+</testng-results>

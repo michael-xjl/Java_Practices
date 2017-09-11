@@ -1,0 +1,72 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	
+	<parent>
+		<groupId>com.amq.cma</groupId>
+		<artifactId>cma</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	
+	<groupId>com.amq.cma.controller</groupId>
+	<artifactId>controller</artifactId>
+	<packaging>war</packaging>
+	
+	<name>CMA Controller</name>
+	<description>CMA-Company Management App Controller classes</description>
+	
+	<dependencies>
+		
+		<dependency>
+			<groupId>com.amq.cma.domain</groupId>
+			<artifactId>domain</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.amq.cma.services</groupId>
+			<artifactId>services</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		
+	</dependencies>
+	
+	<build>
+		<plugins>
+			
+			<plugin>
+				<groupId>org.apache.tomcat.maven</groupId>
+				<artifactId>tomcat7-maven-plugin</artifactId>
+				<version>2.2</version>
+				<configuration>
+					<url>http://localhost:8080</url>
+					<server>Tomcat</server>
+					<path>${app.context.path}</path>
+					<port>8080</port>
+				</configuration>
+			</plugin>
+			
+			<plugin>
+				<groupId>org.mortbay.jetty</groupId>
+				<artifactId>jetty-maven-plugin</artifactId>
+				<version>8.1.16.v20140903</version>
+				<configuration>
+					<scanIntervalSeconds>10</scanIntervalSeconds>
+					<webApp>
+						<contextPath>${app.context.path}</contextPath>
+					</webApp>					
+				</configuration>
+			</plugin>
+			
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>2.6</version>
+				<configuration>
+					<!-- <webappDirectory>${tomcat.home}/webapps/cma</webappDirectory> -->
+					<!-- <webappDirectory>../target/cma</webappDirectory> -->					
+				</configuration>
+			</plugin>
+			
+		</plugins>
+	</build>
+	
+</project>
