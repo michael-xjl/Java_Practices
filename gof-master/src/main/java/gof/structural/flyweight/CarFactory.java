@@ -1,5 +1,11 @@
 package gof.structural.flyweight;
 
+/**
+ * Flyweight vs Singleton
+ *
+ * Flyweight|many different thing|unmutable|strcutral
+ * Singleton|a sinle thing|mutable|creational
+ */
 
 import java.util.HashMap;
 import java.util.Map;
