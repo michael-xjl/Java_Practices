@@ -1,7 +1,11 @@
 package gof.structural.flyweight;
 
 /**
- * Flyweight vs Singleton
+ * * Flyweight vs Singleton
+ *
+ * Flyweight  yield significantly better space and time performance by
+ *      * caching frequently requested values.
+ * same implementation ins Java API :  Integer.valueOf(int i) method
  *
  * Flyweight|many different thing|unmutable|strcutral
  * Singleton|a sinle thing|mutable|creational
