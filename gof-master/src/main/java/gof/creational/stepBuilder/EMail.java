@@ -97,7 +97,8 @@ public class EMail
     {
       Objects.requireNonNull(val);
       to = new ArrayList<>(Arrays.asList(val));
-      return this;
+      final Builder builder = this;
+      return builder;
     }
 
     @Override

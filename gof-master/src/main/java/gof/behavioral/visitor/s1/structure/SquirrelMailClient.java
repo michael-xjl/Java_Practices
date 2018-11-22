@@ -1,6 +1,6 @@
-package gof.behavioral.visitor.structure;
+package gof.behavioral.visitor.s1.structure;
 
-import gof.behavioral.visitor.visitors.MailClientVisitor;
+import gof.behavioral.visitor.s1.visitors.MailClientVisitor;
 
 public class SquirrelMailClient implements MailClient{
     @Override

@@ -1,8 +1,8 @@
-package gof.behavioral.visitor.visitors;
+package gof.behavioral.visitor.s1.visitors;
 
-import gof.behavioral.visitor.structure.OperaMailClient;
-import gof.behavioral.visitor.structure.SquirrelMailClient;
-import gof.behavioral.visitor.structure.ZimbraMailClient;
+import gof.behavioral.visitor.s1.structure.OperaMailClient;
+import gof.behavioral.visitor.s1.structure.SquirrelMailClient;
+import gof.behavioral.visitor.s1.structure.ZimbraMailClient;
 import org.junit.Before;
 import org.junit.Test;
 
