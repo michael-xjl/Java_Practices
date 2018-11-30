@@ -1,4 +1,4 @@
-package gof.behavioral.visitor.s2;
+package gof.behavioral.visitor.s2.composite;
 
 /**
  * @author Michael Liu

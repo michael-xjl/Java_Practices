@@ -1,5 +1,14 @@
 package gof.behavioral.visitor.s2;
 
+import gof.behavioral.visitor.s2.composite.Developer;
+import gof.behavioral.visitor.s2.composite.EmployeeGroup;
+import gof.behavioral.visitor.s2.composite.Manager;
+import gof.behavioral.visitor.s2.visitable.Customer;
+import gof.behavioral.visitor.s2.visitable.Order;
+import gof.behavioral.visitor.s2.visitable.Visitable;
+import gof.behavioral.visitor.s2.visitor.AnnualMeetingReportVisitor;
+import gof.behavioral.visitor.s2.visitor.FiscalReportVisitor;
+
 /**
  * @author Michael Liu
  */
