@@ -1,4 +1,4 @@
-package com.chandana.helloworld.controllers;
+package com.ml.helloworld.controllers;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -17,12 +17,12 @@ import org.springframework.web.bind.annotation.RestController;
 import java.io.IOException;
 import java.io.StringWriter;
 import java.net.SocketException;
-
+import java.util.UUID;
 
 @RestController
-@RequestMapping("/admin")
+@RequestMapping("/ba")
 @Api(value = "user", description = "Rest API for user operations", tags = "User API")
-public class iCalController
+public class BathAuthICalController
 {
 
     @RequestMapping(value = "/ical/{name}", method = RequestMethod.GET, produces = "text/plain")
@@ -44,7 +44,7 @@ public class iCalController
         UidGenerator ug = null;
         try
         {
-            ug = new UidGenerator("1");
+            ug = new UidGenerator(UUID.randomUUID().toString());
         }
         catch (SocketException e)
         {

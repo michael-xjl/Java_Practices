@@ -1,4 +1,4 @@
-package com.chandana.helloworld.config;
+package com.ml.helloworld.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -20,7 +20,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 //@Configuration
 //@EnableSwagger2
 //@EnableWebSecurity
-//@Order(90)
+//@Order(1)
 
 public class ApplicationConfig extends WebSecurityConfigurerAdapter {
 
@@ -32,17 +32,21 @@ public class ApplicationConfig extends WebSecurityConfigurerAdapter {
         return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(getApiInfo())
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.chandana.helloworld.controllers"))
+                .apis(RequestHandlerSelectors.basePackage("com.ml.helloworld.controllers"))
                 .paths(PathSelectors.any())
                 .build();
     }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+//        http.csrf().disable();
+//        http.authorizeRequests().antMatchers("/", "/api/**").permitAll()
+//        .anyRequest().authenticated();
+//        http.httpBasic().authenticationEntryPoint(basicAuthenticationPoint);
+
         http.csrf().disable();
         http.authorizeRequests().antMatchers("/", "/api/**").permitAll()
-        .anyRequest().authenticated();
-        http.httpBasic().authenticationEntryPoint(basicAuthenticationPoint);
+            .antMatchers("/ba","/ba/*").authenticated().and().httpBasic().authenticationEntryPoint(basicAuthenticationPoint);
     }
 
 
@@ -60,6 +64,6 @@ public class ApplicationConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-        auth.inMemoryAuthentication().withUser("chandana").password("chandana2").roles("USER");
+        auth.inMemoryAuthentication().withUser("ml").password("ml2").roles("USER");
     }
 }

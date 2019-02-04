@@ -1,4 +1,4 @@
-package com.chandana.helloworld.controllers;
+package com.ml.helloworld.controllers;
 
 /**
  * @author Michael Liu
@@ -23,12 +23,12 @@ import java.net.SocketException;
 public class OAuthController
 {
 
-  @RequestMapping(value = "/user/", method = RequestMethod.GET)
+  @RequestMapping(value = "/oauth2/", method = RequestMethod.GET)
   public ResponseEntity<String> listAllUsers() {
     return new ResponseEntity<String>("Yeah you get it", HttpStatus.OK);
   }
 
-  @RequestMapping(value = "/user/ical", method = RequestMethod.GET)
+  @RequestMapping(value = "/oauth2/ical", method = RequestMethod.GET)
   public ResponseEntity<String> getIcal() {
     java.util.Calendar calendar = java.util.Calendar.getInstance();
     calendar.set(java.util.Calendar.MONTH, java.util.Calendar.DECEMBER);

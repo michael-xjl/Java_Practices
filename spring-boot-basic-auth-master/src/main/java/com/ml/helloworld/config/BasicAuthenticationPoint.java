@@ -1,4 +1,4 @@
-package com.chandana.helloworld.config;
+package com.ml.helloworld.config;
 
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.authentication.www.BasicAuthenticationEntryPoint;

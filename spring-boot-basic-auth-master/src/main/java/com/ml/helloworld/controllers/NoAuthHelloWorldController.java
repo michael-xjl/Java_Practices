@@ -1,6 +1,6 @@
-package com.chandana.helloworld.controllers;
+package com.ml.helloworld.controllers;
 
-import com.chandana.helloworld.bean.Greeting;
+import com.ml.helloworld.bean.Greeting;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -13,7 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/api")
 @Api(value = "user", description = "Rest API for user operations", tags = "User API")
-public class HelloWorldController {
+public class NoAuthHelloWorldController
+{
 
     @RequestMapping(value = "/hello/{name}", method = RequestMethod.GET, produces = "application/json")
     @ApiOperation(value = "Display greeting message to non-admin user", response = Greeting.class)

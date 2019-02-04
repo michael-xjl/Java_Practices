@@ -1,4 +1,4 @@
-package com.chandana.helloworld.config;
+package com.ml.helloworld.config;
 
 /**
  * @author Michael Liu
@@ -6,6 +6,7 @@ package com.chandana.helloworld.config;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.annotation.Order;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -18,9 +19,14 @@ import org.springframework.security.oauth2.provider.approval.TokenStoreUserAppro
 import org.springframework.security.oauth2.provider.request.DefaultOAuth2RequestFactory;
 import org.springframework.security.oauth2.provider.token.TokenStore;
 import org.springframework.security.oauth2.provider.token.store.InMemoryTokenStore;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
+
 
 @Configuration
+@EnableSwagger2
 @EnableWebSecurity
+@Order(2)
+
 public class OAuth2SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
   @Autowired
@@ -40,6 +46,8 @@ public class OAuth2SecurityConfiguration extends WebSecurityConfigurerAdapter {
         .anonymous().disable()
         .authorizeRequests()
         .antMatchers("/oauth/token").permitAll();
+//        .and().authorizeRequests().anyRequest().hasRole("ADMIN");
+
   }
 
   @Override

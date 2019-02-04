@@ -1,4 +1,4 @@
-package com.chandana.helloworld.config;
+package com.ml.helloworld.config;
 
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -26,9 +26,9 @@ public class OAuthResourceServerConfiguration extends ResourceServerConfigurerAd
   public void configure(HttpSecurity http) throws Exception {
     http.
         anonymous().disable()
-        .requestMatchers().antMatchers("/user/**")
+        .requestMatchers().antMatchers("/oauth2/**")
         .and().authorizeRequests()
-        .antMatchers("/user/**").access("hasRole('ADMIN')")
+        .antMatchers("/oauth2/**").access("hasRole('ADMIN')")
         .and().exceptionHandling().accessDeniedHandler(new OAuth2AccessDeniedHandler());
   }
 
