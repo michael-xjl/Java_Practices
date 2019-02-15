@@ -16,19 +16,19 @@ public class House
     private boolean furnished;
     private boolean painted;
 
-    public void setFoundation(String foundation) {
+    private void setFoundation(String foundation) {
         this. foundation = foundation;
     }
-    public void setStructure(String structure) {
+    private void setStructure(String structure) {
         this.structure = structure;
     }
-    public void setRoof(String roof) {
+    private void setRoof(String roof) {
         this.roof = roof;
     }
-    public void setFurnished(boolean furnished) {
+    private void setFurnished(boolean furnished) {
         this.furnished = furnished;
     }
-    public void setPainted(boolean painted) {
+    private void setPainted(boolean painted) {
         this.painted = painted;
     }
     @Override
@@ -38,6 +38,7 @@ public class House
 
     private House()
     {
+//        throw new AssertionError("Suppress default constructor for noninstantiability");
 
     }
 

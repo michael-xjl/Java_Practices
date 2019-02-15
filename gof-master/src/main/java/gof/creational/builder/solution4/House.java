@@ -38,9 +38,16 @@ public class House
         return "Foundation - " + foundation + " Structure - " + structure + " Roof - " + roof +" Is Furnished? "+furnished+" Is Painted? "+painted;
     }
 
+    //not good, as potentially user just get a instant by this constructor
     public House(HouseBuilder houseBuilder)
     {
         Objects.requireNonNull(houseBuilder);
 
+    }
+
+    //by this way, will better
+    public static HouseBuilder newHouse(String fuundation, String structure, String roof)
+    {
+        return new HouseBuilder(fuundation,structure,roof);
     }
 }
