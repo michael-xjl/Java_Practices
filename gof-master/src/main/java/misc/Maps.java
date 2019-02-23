@@ -4,9 +4,9 @@ package misc;
  *
  *  Hashtable vs HashMap vs Synchnized HashMap vs ConcurrentHashMap
  *
-| *                           | HashMap | SynchronizedHashMap | Hashtable | ConcurrentHashMap |  |
-| *  synchronized             | N       | Y                   | Y         | Y                 |  |
-| synchronize Level           |         | block/object        | method    | segment           |  |
+| *                           | HashMap | SynchronizedHashMap | Hashtable | ConcurrentHashMap |  ConcurrentSkipListMap |
+| *  synchronized             | N       | Y                   | Y         | Y                 | Y |
+| synchronize Level           |         | block/object        | method    | segment           | segment|
 | synchronized on count/get   |         | Y                   | Y         | N                 |  |
 | allow null(key/val)         | N       | N                   | Y         | N                 |  |
 | iterate ConcurrentException | Y       | Y                   | Y         | N                 |  |
@@ -22,6 +22,8 @@ package misc;
  * – It does not allow null to be used as a key or value.
  *
  * – Iterators of ConcurrentHashMap don’t throw a ConcurrentModificationException, so we don’t need to lock the collection while iterating it.
+ *
+ * ConcurrentSkipListMap is combine the fail-safe ( ConcurrentHashMap) and insert order (SynchronizedHashMap), but performance could be worse than ConcurrenthashMap
  *
  * @author Michael Liu
  */
