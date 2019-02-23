@@ -180,6 +180,23 @@ public class TreeUtility
 
   }
 
+  public static int getLevel2(TreeNode treeNode)
+  {
+
+    if(treeNode == null )
+    {
+      return 0;
+    }
+    else
+    {
+      int left = getLevel2(treeNode.left);
+      int right = getLevel2(treeNode.right);
+
+      return 1 + (left > right ? left : right);
+    }
+
+  }
+
   public static void printTree(TreeNode treeNode)
   {
 
