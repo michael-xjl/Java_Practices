@@ -7,6 +7,9 @@ import java.util.Arrays;
  */
 public class PlusOne
 {
+  public PlusOne()
+  {
+  }
 
   public static void main(String[] args)
   {
