@@ -30,19 +30,17 @@ public class ReverseLink
 
   private static LinkNode createLinkNode()
   {
-    LinkNode head = new LinkNode(5);
-    head.next = new LinkNode(4);
-    head.next.next = new LinkNode(3);
-    head.next.next.next = new LinkNode(2);
-    head.next.next.next.next = new LinkNode(1);
-    return head;
+     return  LinkGenerator.gen(new int[]{5,4,3,2,1});
+
   }
 
-  private static LinkNode reverse(LinkNode head)
+  public static LinkNode reverse(LinkNode head)
   {
+
+    // base case , null is reached to tail
     if (head.next == null)
     {
-      return head;
+      return new LinkNode(head.val);
     }
     else
     {
@@ -50,6 +48,11 @@ public class ReverseLink
 
       LinkNode nnHeadCopy = nn;
 
+      /*********************************/
+      // keep the head, always return the head *****
+      LinkNode headCopy = nn;
+
+      // go the tail
       while (nn.next != null)
       {
         nn = nn.next;
@@ -80,21 +83,55 @@ public class ReverseLink
 
   public static LinkNode reverseListByLoop(LinkNode head) {
 
-    if(head == null || head.next == null)
-      return head;
-
-    LinkNode newHead = null;
-
-    while(head != null)
-    {
-      LinkNode tmp = head.next;
-      head.next = newHead;
-
-      newHead = head;
-
-      head = tmp;
-    }
-
-    return newHead;
+//    if(head == null || head.next == null)
+//      return head;
+//
+//    LinkNode newHead = null;
+//
+//    while(head != null)
+//    {
+//      LinkNode tmp = head.next;
+//      head.next = newHead;
+//
+//      newHead = head;
+//
+//      head = tmp;
+//      /*********************************/
+//
+//      // append current node to tail
+//      nn.next = new LinkNode(head.val);
+//
+//      return headCopy;
+    return null;
   }
+
+  public static LinkNode reverse3(LinkNode head)
+  {
+    // base case , null is reached to tail
+    if (head.next == null)
+    {
+      return head;
+    }
+    else
+    {
+      LinkNode nn = reverse(head.next);
+
+      /*********************************/
+      // keep the head, always return the head *****
+      LinkNode headCopy = nn;
+
+      // go the tail
+      while (nn.next != null)
+      {
+        nn = nn.next;
+      }
+      /*********************************/
+
+      // append current node to tail
+      nn.next = head;
+
+      return headCopy;
+    }
+  }
+
 }

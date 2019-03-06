@@ -2,6 +2,8 @@ package datastructure.link;
 
 import sun.awt.image.ImageWatched;
 
+import java.util.Date;
+import java.util.Objects;
 import java.util.Random;
 
 /**
@@ -24,38 +26,31 @@ public class LinkGenerator
         ln = ln.next;
     }
 
-
     return   lnClone;
   }
 
 
   public static LinkNode gen(int n)
   {
-
     return   gen(n,10);
   }
-
 
   public static LinkNode gen(int[] nums)
   {
     if(nums == null || nums.length == 0)
+//      throw new IllegalArgumentException("nums is null");
+    return null;
+
+    LinkNode ln = new LinkNode(nums[0]);
+    LinkNode curr = ln;
+
+    for(int i = 1 ; i < nums.length ; i++)
     {
-      return null;
+      ln.next = new LinkNode(nums[i]);
+      ln = ln.next;
     }
 
-    LinkNode node = new LinkNode(0);
-    LinkNode nodeHead = node;
-
-
-    for(int i = 0 ; i < nums.length ; i++)
-    {
-      node.next = new LinkNode(nums[i]);
-      node = node.next;
-    }
-
-    return nodeHead.next;
-
+    System.out.println(" - " + new Date() + "--: generate linked list : " + curr);
+    return curr;
   }
-
-
 }
