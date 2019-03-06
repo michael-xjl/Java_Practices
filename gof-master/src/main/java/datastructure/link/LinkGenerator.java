@@ -9,7 +9,7 @@ import java.util.Random;
  */
 public class LinkGenerator
 {
-  public static LinkNode gen(int n)
+  public static LinkNode gen(int n, int bound)
   {
 
     LinkNode ln = new LinkNode(new Random().nextInt(10));
@@ -18,7 +18,7 @@ public class LinkGenerator
 
     for(int i = 1; i< n ; i++)
     {
-        LinkNode tmp = new LinkNode(new Random().nextInt(10));
+        LinkNode tmp = new LinkNode(new Random().nextInt(bound));
         ln.next = tmp;
 
         ln = ln.next;
@@ -27,4 +27,35 @@ public class LinkGenerator
 
     return   lnClone;
   }
+
+
+  public static LinkNode gen(int n)
+  {
+
+    return   gen(n,10);
+  }
+
+
+  public static LinkNode gen(int[] nums)
+  {
+    if(nums == null || nums.length == 0)
+    {
+      return null;
+    }
+
+    LinkNode node = new LinkNode(0);
+    LinkNode nodeHead = node;
+
+
+    for(int i = 0 ; i < nums.length ; i++)
+    {
+      node.next = new LinkNode(nums[i]);
+      node = node.next;
+    }
+
+    return nodeHead.next;
+
+  }
+
+
 }

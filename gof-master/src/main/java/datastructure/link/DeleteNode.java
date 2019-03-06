@@ -26,6 +26,12 @@ public class DeleteNode
 
     System.out.println(deleteNodeNthEnd(dbyend,3));
 
+     dbyend = LinkGenerator.gen(new int[]{1,2,3,4,5,6});
+    System.out.println(dbyend);
+    deleteCurrentNode(dbyend.next.next);
+    System.out.println(dbyend);
+
+
   }
 
   public static LinkNode deleteNodeByVal(LinkNode head, int val)
@@ -75,5 +81,17 @@ public class DeleteNode
 
     return head;
 
+  }
+
+  public static void deleteCurrentNode(LinkNode del)
+  {
+    while(del.next.next != null)
+    {
+      del.val = del.next.val;
+      del = del.next;
+    }
+
+    del.val = del.next.val;
+    del.next = null;
   }
 }

@@ -16,7 +16,7 @@ public class LinkNode
 
   public LinkNode(int x, LinkNode next)
   {
-    this.val = x;
+    val = x;
     this.next = next;
   }
 
@@ -39,9 +39,12 @@ public class LinkNode
   private String getNodesVal(LinkNode n)
   {
     
-    if(n.next == null)
-       return String.valueOf(n.val);
+    if(n == null)
+       return "null";
 
-    return String.valueOf(n.val) + "," + getNodesVal(n.next);
+//    if(n.next == null)
+//      return String.valueOf(n.val);
+
+    return String.valueOf(n.val) + " -> " + getNodesVal(n.next);
   }
 }

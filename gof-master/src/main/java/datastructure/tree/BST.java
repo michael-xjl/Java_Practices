@@ -46,10 +46,10 @@ public class BST
     TreeNode node = treeUtility.getNode2(0, 0);
     System.out.println(TreeUtility.getLevel(node));
     System.out.println(isBST(node));
-    System.out.println(isBST(new TreeUtility(new Integer[]{1,2,3}).getTreeNode()));
-    System.out.println(isBST(new TreeUtility(new Integer[]{2,1,9,4,12}).getTreeNode()));
-    System.out.println(isBST(new TreeUtility(new Integer[]{2}).getTreeNode()));
-    System.out.println(isBST(new TreeUtility(new Integer[]{}).getTreeNode()));
+    System.out.println(isBST(new TreeUtility(new Integer[]{1,2,3}).buildTree()));
+    System.out.println(isBST(new TreeUtility(new Integer[]{2,1,9,4,12}).buildTree()));
+    System.out.println(isBST(new TreeUtility(new Integer[]{2}).buildTree()));
+    System.out.println(isBST(new TreeUtility(new Integer[]{}).buildTree()));
   }
 
 

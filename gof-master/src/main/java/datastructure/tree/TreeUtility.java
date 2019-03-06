@@ -24,7 +24,7 @@ public class TreeUtility
    * get the default tree , from the root
    * @return
    */
-  public TreeNode getTreeNode()
+  public TreeNode buildTree()
   {
     return getNode2(0, 0);
   }
@@ -38,15 +38,19 @@ public class TreeUtility
    *
    *
    *   how to find the parent node then location its child nodes?
-   *   fomular:
+   *   fomular to locate the index in array:
+   *      *    root node position index (m = 0, n = 0)
+   *    *      int leftChildNodeIndex = (1 << (m + 1)) + 2 * n; ==> 2^(m+1) + 2*n
+   *    *      int rightChildNodeIndex = leftIndex + 1; ==> 2^(m+1) + 2*n + 1
+   *
    *
    *                           1
    *                          / \
    *                         2   3
    *                        / \ / \
    *                       4  5 n  6
-   *                      / \/ \   /\
-   *                     7  89 10 n  11
+   *                      /\  /\   /\
+   *                     7 8 9 10 n  11
    *
    *     variable : m ,n (m: row index, start from 0; n: col index, start from 0)
    *     so :
@@ -58,7 +62,7 @@ public class TreeUtility
    *
    *
    *    root node position index (m = 0, n = 0)
-   *      int leftChildNodeIndex = (1 << (m + 1)) + 2 * n;
+   *      int leftChildNodeIndex = (1 << (m + 1)) + 2 * n; ==> 2^(m+1) + 2*n
    *      int rightChildNodeIndex = leftIndex + 1;
    *
    *   array.length == 2^(n-1)+2^(n-2)+...+2^0 ==> n is height of tree
@@ -68,8 +72,8 @@ public class TreeUtility
    *
    *
    *
-   * @param m
-   * @param n
+   * @param m row index , base on 0
+   * @param n col index, base on 0
    * @return
    */
   public TreeNode getNode2(int m, int n)
