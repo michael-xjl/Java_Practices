@@ -24,7 +24,7 @@ public class SwapNodes
       while(mCurNode != null && mCurNode.val != m)
       {
 
-        mPreNode = mCurNode
+        mPreNode = mCurNode;
         ln = ln.next;
       }
 

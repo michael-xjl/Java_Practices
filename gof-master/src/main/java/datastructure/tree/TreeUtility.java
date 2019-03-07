@@ -168,8 +168,7 @@ public class TreeUtility
     else
     {
 
-      int leftL, rightL;
-      leftL = rightL = 0;
+      int leftL =0, rightL = 0;
 
       if (treeNode.left != null)
       {
@@ -337,6 +336,36 @@ public class TreeUtility
           if(pNode.right != null)
             treeNodeQueue.add(pNode.right);
         }
+      }
+    }
+  }
+
+  public static void sumEachLevelVal(List<Integer> list, TreeNode treeNode)
+  {
+
+    Queue<TreeNode> treeNodeQueue = new ArrayDeque<>();
+    if(treeNode != null)
+    {
+      treeNodeQueue.add(treeNode);
+
+      while(treeNodeQueue.size() > 0 )
+      {
+        TreeNode[] nodeInQ = treeNodeQueue.toArray(new TreeNode[0]);
+        treeNodeQueue.clear();
+
+        int sum = 0;
+        for(TreeNode pNode : nodeInQ)
+        {
+          sum += pNode.val;
+          System.out.print(pNode.val + "-->");
+          if(pNode.left != null)
+            treeNodeQueue.add(pNode.left);
+          if(pNode.right != null)
+            treeNodeQueue.add(pNode.right);
+        }
+        System.out.println();
+        list.add(sum);
+
       }
     }
   }

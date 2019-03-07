@@ -3,6 +3,7 @@ package datastructure.tree;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * @author Michael Liu
@@ -63,8 +64,36 @@ public class TreeUtilityTest
     sortOrder = new ArrayList<>();
     TreeUtility.downUpTraversal(sortOrder, node);
     System.out.println("DownUp Order: " + sortOrder);
+
+    sortOrder = new ArrayList<>();
+    TreeUtility.sumEachLevelVal(sortOrder, node);
+    System.out.println("Sum Level Vals: " + sortOrder);
+
+    /**
+    final Counter s = new Counter();
+    sortOrder.forEach(t -> {
+    System.out.println( s.getI() + " " + t);});
+     **/
+
+    final Integer[] ts = sortOrder.toArray(new Integer[0]);
+    int sum = 0;
+    for(int i = 0 ; i < ts.length ; i ++)
+    {
+      sum += i%2 == 1 ? ts[i] * -1 : ts[i];
+    }
+    System.out.println(sum);
   }
 
+  private static class Counter
+  {
+    private AtomicInteger i = new AtomicInteger(0);
+
+    public int getI()
+    {
+      return i.incrementAndGet();
+    }
+
+  }
   public void testTopDownTraversal()
   {
 
