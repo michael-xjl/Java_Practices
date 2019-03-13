@@ -13,8 +13,8 @@ package datastructure.set;
 
     LinkedHashSet extends HashSet
 
- |HashSet  | LinkedHashSet
- backby| HashMap|LinkedHashMap
+|        | HashSet | LinkedHashSet |  |
+| backby | HashMap | LinkedHashMap |  |
 
  * <p>A linked hash set has two parameters that affect its performance:
  * <i>initial capacity</i> and <i>load factor</i>.  They are defined precisely
@@ -24,6 +24,36 @@ package datastructure.set;
  * by capacity.
  *
  *
+ * ╔═══════════════════╦══════════════════════╦═════════════════════════════╗
+ * ║                   ║         List         ║            Set              ║
+ * ╠═══════════════════╬══════════════════════╬═════════════════════════════╣
+ * ║     Duplicates    ║          YES         ║            NO               ║
+ * ╠═══════════════════╬══════════════════════╬═════════════════════════════╣
+ * ║       Order       ║       ORDERED        ║  DEPENDS ON IMPLEMENTATION
+ * ║                                              LinkedHashSet has the insertion order
+ * ╠═══════════════════╬══════════════════════╬═════════════════════════════╣
+ * ║ Positional Access ║         YES          ║            NO               ║
+ * ╚═══════════════════╩══════════════════════╩═════════════════════════════╝
+ *
+ *
+ *  List:
+ *  Can be accessed by index
+ *  Have insertion order, or can control order by index
+   * implemetented using
+   *
+   * LinkedList (also implement deque)
+   * ArrayList
+ *
+ * Lists of unique elements:
+ * Conform to Java's interface named Set
+ * Can not be accessed by index
+ *
+ * implemetented using
+ *
+ * HashSet (unordered, implemented by HashMap)
+ * LinkedHashSet (insertion ordered, extend HashSet, with such constructor : super(16, .75f, true), third parameter is dummy, all the constuctors in H
+ * HashSet with dummy parameters will instant internal variable Map with LinkedHashMap , otherwise with HashMap)
+ * TreeSet (sorted by natural order or by provided comparator, implement by TreeMap)
  *
  * @author Michael Liu
  */
