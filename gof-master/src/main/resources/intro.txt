@@ -1,0 +1,26 @@
+A lot of experience with Excel:
+--------------------------------
+when I was in BI company, all the things are about data warehouse and reports,  use apache excel api to generate many complicated Excel format reports from BI system ,
+then in ABB company, at the beginning , we use VBA(Visual Basic for Applications) to program inside excel , it will connect to sql server datasource, then drive excel to generate different pivot tables, charts.
+
+
+-----------------------------
+I am a java full stack developer with more than 10years experience, in my past career, experienced many different projects and different industries. in first 4 years. I was java developer in a system intergration company which provding solution for finicial compnays, such banks , fund companies. after that, I went to a Business Intelligce company, where developed BI product. got a lot experience about datawarehouse , reports.
+
+before I came to Canada, I was in the compay ABB, It is an enginerring company, but I was in IT department,  we developed in  house system for sales and markting departments, such as order tracking, reporting , CRM. sales organization throught the whole country.
+
+My first job in Canada was in RAD, RAD partenned with US wells frargo bank I invoved two projects there. one is to modernize their legcay bank teller system, I mean use web technolicagy to replace they C++ xwindow teller system. another project to upgrade thier middleware system . replace soap webservice to restful webserice.
+
+for now I am working in ppc, which providng senior heath care software platform. it is used by many providers in senior care industry. the platform includes serveral modules. I am developing the crm module. generally speaking, CRM help sales and marketing teams to manage sales lead, track marketing activities, mantain ocupancies. keep relationship with different referrals.
+
+
+-----------------------------
+I will analyze business requirement, calify requirement with PO,  estimate feeasibility, analyze and design system structure, code implementation, and automation testing.
+
+---------------------------
+my big adavantage is quick leaner, life learner, troubleshooting, experience with software developement, sovle problems quickly, code with less bugs, have big picture of system, can extimate where is the hardest part, determ feasibility , can estimate time requirements, avoid potential issues,
+
+I feel less chanllenge, repeat myself. so I am considering to switch enviremonet.
+----------------------------
+How many developers/teams in mississuage office?
+what kind of cadidates are you looking for?
