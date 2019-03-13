@@ -23,6 +23,9 @@ public class PlusOne
     moveZeroes(b);
     System.out.println(Arrays.toString(b));
 
+    System.out.println(!true | !false);
+    System.out.println(!true | false);
+
 
   }
 

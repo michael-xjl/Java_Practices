@@ -43,8 +43,8 @@ public class SortByValue
   {
     List<Map.Entry<K,V>> list = new ArrayList<>(map.entrySet());
 
-//    Collections.sort(list, Map.Entry.comparingByValue());
-    list.sort(Map.Entry.comparingByKey());
+    Collections.sort(list, Map.Entry.comparingByValue());
+//    list.sort(Map.Entry.comparingByKey());
 
     Map<K,V> result = new LinkedHashMap<>();
     for(Map.Entry<K,V> entry : list)
