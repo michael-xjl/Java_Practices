@@ -1,5 +1,8 @@
 package datastructure.tree;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 /**
  * BST : Binary Search Tree
  *
@@ -50,6 +53,11 @@ public class BST
     System.out.println(isBST(new TreeUtility(new Integer[]{2,1,9,4,12}).buildTree()));
     System.out.println(isBST(new TreeUtility(new Integer[]{2}).buildTree()));
     System.out.println(isBST(new TreeUtility(new Integer[]{}).buildTree()));
+
+    //should false, as node(30) is on the left of tree, it should be less than root(20) even it it greater than its parent node(15)
+    System.out.println(isBST(new TreeUtility(new Integer[]{20,15,40,10,30}).buildTree()));
+
+    System.out.println(validateBST2(new TreeUtility(new Integer[]{20,15,40,10,30}).buildTree()));
   }
 
 
@@ -59,32 +67,67 @@ public class BST
     if(tn == null)
       return true;
 
-    boolean left, right;
-    left = right = true;
-
-    if(tn.left != null)
-      left = compareBSTNodes(tn, tn.left, true);
-
-
-    if(tn.right != null)
-      right = compareBSTNodes(tn, tn.right, false);
-
-
-    if(!left || !right)
-      return false;
-
-    return true;
+    return compareBSTNodes(tn.left, -1, tn.val,  true) && compareBSTNodes(tn.right, tn.val, -1,  false);
   }
 
-  private static boolean compareBSTNodes(TreeNode pNode, TreeNode cNode, boolean isLeft)
+  private static boolean compareBSTNodes(TreeNode pNode, int min, int max,  boolean isLeft)
   {
 
-      if(cNode == null)
+      if(pNode == null)
         return true;
 
-      return isLeft? pNode.val > cNode.val:  pNode.val < cNode.val;
+     if((isLeft && pNode.val > max ) || (!isLeft && pNode.val < min))
+        return false;
+
+     return compareBSTNodes(pNode.left, pNode.val, -1, true) && compareBSTNodes(pNode.right, -1, pNode.val , false);
 
   }
 
+
+  /**simple version, but can't cover every case**/
+
+  public static boolean validateBST(TreeNode root) {
+
+    if(root == null )
+      return true;
+
+    if(root.left != null )
+      if(root.left.val > root.val )
+        return false;
+
+    if(root.right != null )
+      if(root.right.val < root.val )
+        return false;
+
+    return validateBST(root.left) && validateBST(root.right);
+
+  }
+
+
+  /*** another way **/
+  static ArrayList<Integer> nodesList = new ArrayList<Integer>();
+
+  public static boolean validateBST2(TreeNode root) {
+    inorderTraversal(root);
+    System.out.println(Arrays.toString(nodesList.toArray()));
+    for (int i = 1; i < nodesList.size(); i++) {
+      if (nodesList.get(i-1) > nodesList.get(i)) {
+        nodesList.clear();
+        return false;
+      }
+    }
+    nodesList.clear();
+    return true;
+
+  }
+
+  //after inorder travel, all the nodes are sorted
+  public static void inorderTraversal(TreeNode node) {
+    if (node != null) {
+      inorderTraversal(node.left);
+      nodesList.add(node.val);
+      inorderTraversal(node.right);
+    }
+  }
 
 }
