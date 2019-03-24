@@ -15,7 +15,7 @@ for now I am working in ppc, which providng senior heath care software platform.
 
 
 -----------------------------
-I will analyze business requirement, calify requirement with PO,  estimate feeasibility, analyze and design system structure, code implementation, and automation testing.
+I will analyze business requirement, calify requirement with PO,  estimate feasibility, analyze and design system structure, code implementation, and automation testing.
 
 ---------------------------
 my big adavantage is quick leaner, life learner, troubleshooting, experience with software developement, sovle problems quickly, code with less bugs, have big picture of system, can extimate where is the hardest part, determ feasibility , can estimate time requirements, avoid potential issues,

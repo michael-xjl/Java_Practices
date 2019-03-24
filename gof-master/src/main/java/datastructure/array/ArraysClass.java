@@ -12,6 +12,7 @@ public class ArraysClass
 {
   public static void main(String[] args)
   {
+
     double[] da = new double[50];
     Arrays.setAll(da, i -> i*1.5);
     System.out.println(Arrays.toString(da));
