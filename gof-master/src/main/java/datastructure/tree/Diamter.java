@@ -2,6 +2,8 @@ package datastructure.tree;
 
 import org.junit.Test;
 
+import static org.junit.Assert.assertEquals;
+
 /**
  * @author Michael Liu
  */
@@ -53,5 +55,13 @@ public class Diamter
   public void rootHeight()
   {
 
+    TreeNode root = new TreeNode(10);
+    root.left = new TreeNode(8);
+    root.right = new TreeNode(12);
+    root.right.right = new TreeNode(14);
+
+    final int height = getHeight(root);
+
+    assertEquals(3, height);
   }
 }

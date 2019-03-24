@@ -202,6 +202,9 @@ public class TreeUtility
 
   public static void printTree(TreeNode treeNode)
   {
+    final int height = getLevel2(treeNode);
+
+    
 
   }
 
