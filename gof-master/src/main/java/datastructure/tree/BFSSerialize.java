@@ -5,7 +5,7 @@ import java.util.LinkedList;
 /**
  * @author Michael Liu
  */
-public class Serialize
+public class BFSSerialize
 {
   public static void main(String[] args)
   {
@@ -15,18 +15,49 @@ public class Serialize
     final String serializeTree = serializeTree(treeNode);
     System.out.println(serializeTree);
 
-    TreeNode restoreTree = restoreTree(serializeTree);
+    TreeNode restoreTree = restoreTree(serializeTree,"");
     System.out.println(serializeTree(restoreTree));
 
-    restoreTree = restoreTree("1,,3,,,,4");
+    restoreTree = restoreTree("1,,3,,,,4","");
     System.out.println(serializeTree(restoreTree));
     restoreTree = restoreTree2("1,,3,,,,4");
     System.out.println(serializeTree(restoreTree));
+
+    /**
+     *         1
+     *         /\
+     *        2  3
+     *            \
+     *             4
+     *             /\
+     *            5  6
+     */
+
+
+    TreeNode treeNode2 = new TreeNode(1);
+    treeNode2.left = new TreeNode(2);;
+    treeNode2.right = new TreeNode(3);
+    treeNode2.right.right = new TreeNode(4);;
+    treeNode2.right.right.left = new TreeNode(5);
+    treeNode2.right.right.right = new TreeNode(6);
+
+    System.out.println(serializeTree(treeNode2, "null"));
   }
 
 
 
   public static String serializeTree(TreeNode root)
+  {
+    return serializeTree(root, "");
+  }
+
+  /**
+   *
+   * @param root
+   * @param emptyReplacement the String to represent the null node : can be *, empty, or null
+   * @return
+   */
+  public static String serializeTree(TreeNode root, String emptyReplacement)
   {
 
     LinkedList<Integer> lt = new LinkedList<>();
@@ -71,7 +102,7 @@ public class Serialize
 
     StringBuffer sb = new StringBuffer();
     for (Integer str : lt)
-      sb.append(str == null ? "" : str).append(",");
+      sb.append(str == null ? emptyReplacement : str).append(",");
 
     sb.setLength(sb.length() - 1);
 
@@ -81,14 +112,14 @@ public class Serialize
 
 
 
-  public static TreeNode restoreTree(String str){
+  public static TreeNode restoreTree(String str, String emptyReplacement){
 
     String[] nodes = str.split(",", -1);
 
     if(nodes == null || nodes.length == 0)
       return null;
 
-    TreeNode head = createNode(nodes[0]);
+    TreeNode head = createNode(nodes[0], emptyReplacement);
 
     LinkedList<TreeNode> ll = new LinkedList<>();
 
@@ -104,8 +135,8 @@ public class Serialize
       for(TreeNode t : arr)
       {
 
-        TreeNode left = createNode(nodes[index++]);
-        TreeNode right = createNode(nodes[index++]);
+        TreeNode left = createNode(nodes[index++], emptyReplacement);
+        TreeNode right = createNode(nodes[index++],emptyReplacement);
 
         if(t != null)
         {
@@ -123,14 +154,19 @@ public class Serialize
     return head;
 
   }
+
   public static TreeNode restoreTree2(String str){
+    return  restoreTreeReal(str, "");
+  }
+
+  public static TreeNode restoreTreeReal(String str, String emptyReplacement){
 
     String[] nodes = str.split(",", -1);
 
     if(nodes == null || nodes.length == 0)
       return null;
 
-    TreeNode head = createNode(nodes[0]);
+    TreeNode head = createNode(nodes[0], emptyReplacement);
 
     LinkedList<TreeNode> ll = new LinkedList<>();
 
@@ -151,8 +187,8 @@ public class Serialize
         if(t != null)
         {
 
-          TreeNode left = createNode(nodes[index++]);
-          TreeNode right = createNode(nodes[index++]);
+          TreeNode left = createNode(nodes[index++], emptyReplacement);
+          TreeNode right = createNode(nodes[index++], emptyReplacement);
 
           t.left = left;
           t.right = right;
@@ -175,9 +211,9 @@ public class Serialize
 
   }
 
-  private static TreeNode createNode(String str)
+  private static TreeNode createNode(String str, String emptyReplacement)
   {
-    if(str == null || str.equalsIgnoreCase(""))
+    if(str == null || str.equalsIgnoreCase(emptyReplacement))
       return null;
     else
       return new TreeNode(Integer.valueOf(str));

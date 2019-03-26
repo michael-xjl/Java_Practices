@@ -13,7 +13,7 @@ import java.util.Queue;
 public class Decompression
 {
 
-  public TreeNode decompressTree(String str){
+  public static  TreeNode decompressTree(String str){
 
     if(str == null || str.length() == 0 )
       return null;
@@ -53,7 +53,7 @@ public class Decompression
     return root;
   }
 
-  private TreeNode buildNode(String s)
+  private static TreeNode buildNode(String s)
   {
     if(s.equals("*"))
       return null;

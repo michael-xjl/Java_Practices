@@ -18,9 +18,27 @@ import java.util.List;
  *
  * ********************************************************************************
  *
+ * Consider,
+ * L-Left
+ * R-Right
+ * V-Visit
+ * Here let V decide whether  its preorder, postorder,inorder.
+ * VLR-Preorder (seriese/deseries tree)
+ * LRV-Postorder
+ * LVR-Inorder.
+ * Pretty Simple !!
+ * *************************************************************
+ *
  * Pre- and post-order relate to top-down and bottom-up recursive algorithms,
  * respectively. If you want to write a given recursive algorithm on binary trees in an iterative fashion,
  * this is what you will essentially do.
+ *
+ *
+ * **************
+ *
+ * InOrder ( left-root-right) can be incresing list node
+ * reverse inorder ( right-root-left ) can be deincreasing nodes
+ * *********
  *
  * @author Michael Liu
  */

@@ -1,6 +1,7 @@
 package datastructure.link;
 
 import java.util.HashSet;
+import java.util.Hashtable;
 import java.util.Set;
 
 /**
@@ -153,5 +154,27 @@ public class CycleLink
     }
 
     return false;
+  }
+
+  public static boolean isCyclic(LinkNode head)
+  {
+    boolean result = false;
+    Hashtable<LinkNode, Integer> nodeTable = new Hashtable<>();
+    // Iterate over the list
+    while (head != null)
+    {
+      if (nodeTable.containsKey(head))
+      {
+        result = true;
+        break;
+      }
+      else
+      {
+        // add an entry of node's data in hashtable
+        nodeTable.put(head, head.val);
+        head = head.next;
+      }
+    }
+    return result;
   }
 }

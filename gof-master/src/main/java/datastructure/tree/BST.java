@@ -2,6 +2,7 @@ package datastructure.tree;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.LinkedList;
 
 /**
  * BST : Binary Search Tree
@@ -153,4 +154,53 @@ public class BST
     }
   }
 
+
+
+  public static boolean validateBSTItr(TreeNode root) {
+
+    if(root == null) return true;
+
+    LinkedList<TreeNode> ll = new LinkedList<>();
+
+    if(root.left != null && root.left.val > root.val) return false;
+    if(root.right != null && root.right.val < root.val) return false;
+
+    ll.add(root.right);
+
+    while(!ll.isEmpty())
+    {
+      TreeNode t = ll.remove();
+
+      if(t != null)
+      {
+        if(t.right != null && t.right.val < t.val)
+          return false;
+        else if(t.left != null && (t.left.val < root.val || t.left.val > t.val))
+          return false;
+
+        ll.add(t.left);
+        ll.add(t.right);
+      }
+    }
+
+    ll.add(root.left);
+
+    while(!ll.isEmpty())
+    {
+      TreeNode t = ll.remove();
+
+      if(t != null)
+      {
+        if(t.right != null && (t.right.val < t.val || t.right.val > root.val))
+          return false;
+        else if(t.left != null && t.left.val > t.val)
+          return false;
+
+        ll.add(t.left);
+        ll.add(t.right);
+      }
+    }
+
+    return true;
+  }
 }

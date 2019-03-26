@@ -1,5 +1,11 @@
 package datastructure.array;
 
+import org.junit.Test;
+
+import java.util.BitSet;
+
+import static org.junit.Assert.assertEquals;
+
 /**
  * @author Michael Liu
  */
@@ -34,5 +40,22 @@ public class SingleNum
     }
 
     return false;
+  }
+
+  public static int findMissingNumber(int[] arr) {
+
+    BitSet bs = new BitSet(arr.length+1);
+
+    for(int n : arr)
+      bs.set(n-1);
+
+    return bs.nextClearBit(0)+1;
+
+  }
+
+  @Test
+  public void testFindMissingNumber()
+  {
+    assertEquals(4, findMissingNumber(new int[]{1,2,3,5,6,7,8,9}));
   }
 }
