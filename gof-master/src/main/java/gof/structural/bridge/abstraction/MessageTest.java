@@ -19,5 +19,9 @@ public class MessageTest {
        MessageSender emailMessageSender=new EmailMessageSender();
        Message emailMessage=new TextMessage(emailMessageSender);
        emailMessage.send();
+
+
+       Message emailMessage2=new EmailMessage(textMessageSender);
+      emailMessage2.send();
     }
 }

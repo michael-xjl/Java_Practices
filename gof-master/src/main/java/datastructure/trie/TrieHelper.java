@@ -3,7 +3,7 @@ package datastructure.trie;
 /**
  * @author Michael Liu
  */
-public class Tries
+public class TrieHelper
 {
   public static TrieNode buildTrie(String[] strs)
   {

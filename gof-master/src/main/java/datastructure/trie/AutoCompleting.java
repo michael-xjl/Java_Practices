@@ -12,7 +12,7 @@ public class AutoCompleting
 
   public AutoCompleting(String[] dict)
   {
-    trie = Tries.buildTrie(dict);
+    trie = TrieHelper.buildTrie(dict);
   }
 
   public static void main(String[] args)

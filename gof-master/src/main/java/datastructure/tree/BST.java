@@ -74,18 +74,18 @@ public class BST
   private static boolean compareBSTNodes(TreeNode pNode, int min, int max,  boolean isLeft)
   {
 
-      if(pNode == null)
-        return true;
-//    return compareBSTNodes(tn.left , tn.val, null) &&   compareBSTNodes(tn.right , null, tn.val);
-//
-//  }
-//>>>>>>> Collision
-//
-//     if((isLeft && pNode.val > max ) || (!isLeft && pNode.val < min))
-//        return false;
-//
-//<<<<<<< 9a855688458755eaf05c1aafeaf9ed89550a5dc2
-     return compareBSTNodes(pNode.left, pNode.val, -1, true) && compareBSTNodes(pNode.right, -1, pNode.val , false);
+    if(pNode == null)
+      return true;
+    //    return compareBSTNodes(tn.left , tn.val, null) &&   compareBSTNodes(tn.right , null, tn.val);
+    //
+    //  }
+    //>>>>>>> Collision
+    //
+    //     if((isLeft && pNode.val > max ) || (!isLeft && pNode.val < min))
+    //        return false;
+    //
+    //<<<<<<< 9a855688458755eaf05c1aafeaf9ed89550a5dc2
+    return compareBSTNodes(pNode.left, pNode.val, -1, true) && compareBSTNodes(pNode.right, -1, pNode.val , false);
   }
 
   /**simple version, but can't cover every case**/
@@ -122,26 +122,26 @@ public class BST
     }
     nodesList.clear();
     return true;
-//=======
-//      if(pNode == null)
-//          return true;
-//
-//      if(max != null && pNode.val > max)
-//        return false;
-//
-//      if(min != null && pNode.val < min)
-//        return false;
-//
-//      boolean left = compareBSTNodes(pNode.left, pNode.val,null);
-//      if(!left)
-//        return false;
-//
-//      boolean right = compareBSTNodes(pNode.right, null, pNode.val);
-//      if(!right)
-//        return false;
-//
-//      return true;
-//>>>>>>> Collision
+    //=======
+    //      if(pNode == null)
+    //          return true;
+    //
+    //      if(max != null && pNode.val > max)
+    //        return false;
+    //
+    //      if(min != null && pNode.val < min)
+    //        return false;
+    //
+    //      boolean left = compareBSTNodes(pNode.left, pNode.val,null);
+    //      if(!left)
+    //        return false;
+    //
+    //      boolean right = compareBSTNodes(pNode.right, null, pNode.val);
+    //      if(!right)
+    //        return false;
+    //
+    //      return true;
+    //>>>>>>> Collision
 
   }
 

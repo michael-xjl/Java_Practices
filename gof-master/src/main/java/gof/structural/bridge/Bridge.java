@@ -61,6 +61,10 @@ Adapter and Facade both have a different interface than what they wrap. But the 
 
 Bridge and Adapter both point at an existing type. But the bridge will point at an abstract type, and the adapter might point to a concrete type. The bridge will allow you to pair the implementation at runtime, whereas the adapter usually won't.
 
+
+
+A classic example of the Bridge pattern is used in the definition of shapes in an UI environment (see the Bridge pattern Wikipedia entry). The Bridge pattern is a composite of the Template and Strategy patterns.
+
  */
 public class Bridge
 {
