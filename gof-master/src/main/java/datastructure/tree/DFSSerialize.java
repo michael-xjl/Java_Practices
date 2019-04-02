@@ -22,21 +22,42 @@ public class DFSSerialize
 
 
     DFSSerialize s = new DFSSerialize();
-    final String serializeTree = s.serializeTreeInOrder(treeNode);
+    final String serializeTree = s.serializeTreePreOrder1(treeNode);
     System.out.println(serializeTree);
-    //1,2,null,null,3,null,4,5,null,null,6,null,null
+    //6,1,null,null,8,null,10,9,null,null,12,null,null
 
-    System.out.println(s.serializeTreePreOrder(treeNode));
+    System.out.println(s.serializeTreeInOrder(treeNode));
+    //null,1,null,6,null,8,null,9,null,10,null,12,null
 
-    final TreeNode restoreTree = s.restoreTreeInOrder(serializeTree);
+    final TreeNode restoreTree = s.restoreTreePreOrder(serializeTree);
 
     System.out.println(restoreTree);
   }
 
   /**
-   * VLR - inorder to serialize tree
+   * VLR - preorder to serialize tree
    *
    */
+
+  public String serializeTreePreOrder1(TreeNode root){
+    StringBuilder sb = new StringBuilder();
+    serializeTreePreOrder2Helper(root,sb);
+    if(sb.length() > 0) sb.deleteCharAt(0);
+    return sb.toString();
+  }
+
+  private StringBuilder serializeTreePreOrder2Helper(TreeNode t, StringBuilder sb){
+    if(t == null) sb.append(",null");
+    else {
+      sb.append(","+t.val);
+      serializeTreePreOrder2Helper(t.left, sb);
+      serializeTreePreOrder2Helper(t.right, sb);
+    }
+    return sb;
+  }
+
+
+  /*************** InOrder LVR *****************/
 
   public String serializeTreeInOrder(TreeNode root){
     StringBuilder sb = new StringBuilder();
@@ -48,45 +69,25 @@ public class DFSSerialize
   private StringBuilder serializeTreeInOrderHelper(TreeNode t, StringBuilder sb){
     if(t == null) sb.append(",null");
     else {
-      sb.append(","+t.val);
       serializeTreeInOrderHelper(t.left, sb);
+      sb.append(","+t.val);
       serializeTreeInOrderHelper(t.right, sb);
     }
     return sb;
   }
 
-
-  /*************** PreOrder *****************/
-
-  public String serializeTreePreOrder(TreeNode root){
-    StringBuilder sb = new StringBuilder();
-    serializeTreePreOrderHelper(root,sb);
-    if(sb.length() > 0) sb.deleteCharAt(0);
-    return sb.toString();
-  }
-
-  private StringBuilder serializeTreePreOrderHelper(TreeNode t, StringBuilder sb){
-    if(t == null) sb.append(",null");
-    else {
-      serializeTreePreOrderHelper(t.left, sb);
-      sb.append(","+t.val);
-      serializeTreePreOrderHelper(t.right, sb);
-    }
-    return sb;
-  }
-
-  public TreeNode restoreTreeInOrder(String str){
+  public TreeNode restoreTreePreOrder(String str){
     String[] nodesSplit = str.split(",");
     LinkedList<String> nodesList = new LinkedList<>(Arrays.asList(nodesSplit));
-    return restoreTreeInOrderHelper(nodesList);
+    return restoreTreePreOrderHelper(nodesList);
   }
 
-  public TreeNode restoreTreeInOrderHelper(LinkedList<String> nodes){
+  public TreeNode restoreTreePreOrderHelper(LinkedList<String> nodes){
     String nodeDataStr = nodes.remove();
     if(nodeDataStr.equals("null")) return null;
     TreeNode t = new TreeNode(Integer.valueOf(nodeDataStr));
-    t.left = restoreTreeInOrderHelper(nodes);
-    t.right = restoreTreeInOrderHelper(nodes);
+    t.left = restoreTreePreOrderHelper(nodes);
+    t.right = restoreTreePreOrderHelper(nodes);
     return t;
   }
 }

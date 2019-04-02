@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Queue;
+import java.util.Stack;
 
 /**
  * @author Michael Liu
@@ -215,6 +216,7 @@ public class TreeUtility
 
   }
 
+  //VLR
   public static void preOrderTraversal(List<Integer> preOrderList, TreeNode treeNode)
   {
     if (treeNode != null)
@@ -230,10 +232,39 @@ public class TreeUtility
     }
   }
 
+  public static void preOrderItrTraversal(List<Integer> preOrderList, TreeNode root)
+  {
+    if (root != null)
+      return;
+
+    Stack<TreeNode> stack = new Stack<>();
+
+    stack.push(root);
+
+    while(!stack.isEmpty())
+    {
+      TreeNode curr = stack.pop();
+
+      preOrderList.add(curr.val);
+
+      if(curr.right != null)
+        stack.add(curr.right);
+
+      if(curr.left != null)
+        stack.add(curr.left);
+
+    }
+
+  }
+
+
+  //LVR
   public static void inOrderTraversal(List<Integer> list, TreeNode treeNode)
   {
-    if (treeNode != null)
-    {
+
+    if (treeNode == null)
+      return;
+
       if (treeNode.left != null)
         inOrderTraversal(list, treeNode.left);
 
@@ -242,7 +273,35 @@ public class TreeUtility
 
       if (treeNode.right != null)
         inOrderTraversal(list, treeNode.right);
+
+  }
+
+  // LVR
+  public static void inOrderItrTraversal(List<Integer> list, TreeNode root)
+  {
+
+    if (root == null)
+      return;
+
+    Stack<TreeNode> stack = new Stack<>();
+
+    TreeNode curr = root;
+
+    while (!stack.isEmpty() || curr != null)
+    {
+      while (curr != null)
+      {
+        stack.push(curr);
+        curr = curr.left;
+      }
+
+      TreeNode node = stack.pop();
+
+      list.add(node.val);
+
+      curr = node.right;
     }
+
   }
 
   public static void postOrderTraversal(List<Integer> list, TreeNode treeNode)

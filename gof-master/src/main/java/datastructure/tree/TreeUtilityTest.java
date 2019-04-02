@@ -51,7 +51,11 @@ public class TreeUtilityTest
 
     sortOrder = new ArrayList<>();
     TreeUtility.inOrderTraversal(sortOrder, node);
-    System.out.println("In Order: " + sortOrder);
+    System.out.println("In Order Recursion: " + sortOrder);
+
+    sortOrder = new ArrayList<>();
+    TreeUtility.inOrderItrTraversal(sortOrder, node);
+    System.out.println("In Order Itr: " + sortOrder);
 
     sortOrder = new ArrayList<>();
     TreeUtility.postOrderTraversal(sortOrder, node);
