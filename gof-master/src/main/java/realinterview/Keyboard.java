@@ -120,13 +120,13 @@ public class Keyboard
 
     String inputStr = "hello world";
 
-    String outputStr = transform(transformCommand, inputStr);
+    String outputStr = transform(transformCommand, inputStr).toString();
 
     transform("V,-85,V,H", ";3jju 4u2je");
 
   }
 
-  public static String transform(String transformCommand, String inputStr)
+  public static StringBuffer transform(String transformCommand, String inputStr)
   {
 
     System.out.println("Input: " + inputStr);
@@ -134,42 +134,27 @@ public class Keyboard
     String[] cmds = transformCommand.toUpperCase().split(",");
 
     StringBuffer sb = new StringBuffer();
-    int i = 0;
-    while (i < inputStr.length())
+    for (char ic : inputStr.toCharArray())
     {
-      char ic = inputStr.charAt(i);
-
       if (shiftStr.indexOf(ic) >= 0)
       {
-        for (int k = 0; k < cmds.length; k++)
+        for (String cmd : cmds)
         {
-          String cmd = cmds[k];
-
-          if (cmd.equalsIgnoreCase("H"))
-          {
+          if (cmd.equals("H"))
             ic = getHFlip(ic);
-          }
-          else if (cmd.equalsIgnoreCase("V"))
-          {
+          else if (cmd.equals("V"))
             ic = getVFlip(ic);
-          }
           else
-          {
             ic = getShift(ic, Integer.valueOf(cmd));
-          }
         }
-
       }
 
       sb.append(ic);
-
-      i++;
     }
 
     System.out.println("output: " + sb);
 
-    return sb.toString();
-
+    return sb;
   }
 
   public static char getHFlip(char c)

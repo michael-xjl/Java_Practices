@@ -3,6 +3,7 @@ package datastructure.tree;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 import java.util.Stack;
@@ -376,6 +377,33 @@ public class TreeUtility
         System.out.print((node == null ? null : node.val) + "-->");
       }
     }
+  }
+
+  public ArrayList<Integer> levelorderRev(TreeNode root)
+  {
+    ArrayList<Integer> levelOrderList = new ArrayList<Integer>();
+    if (root == null)
+      return null;
+    Queue<TreeNode> q = new LinkedList<TreeNode>();
+    Stack<TreeNode> s = new Stack<TreeNode>();
+    q.add(root);
+    TreeNode curr = null;
+    // Traverse level order and push items in stack
+    while (!q.isEmpty())
+    {
+      curr = q.remove();
+      if (curr.right != null) //***important to traverse right tree first.
+        q.add(curr.right);
+      if (curr.left != null)
+        q.add(curr.left);
+      s.push(curr);
+    }
+    // Add the data in a reverse level order.
+    while (!s.isEmpty())
+    {
+      levelOrderList.add(s.pop().val);
+    }
+    return levelOrderList;
   }
 
   /**
